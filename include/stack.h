@@ -119,7 +119,7 @@ List<T>::List(int n) {
 }
 template<class T>
 List<T>::~List() {
-	if ( head != nullptr) {
+	if (head != nullptr) {
 		Node<T>* a = head;
 		if (a->next != nullptr) {
 			Node<T>* b;
@@ -211,7 +211,7 @@ bool List<T>::operator==(List<T>& lst) {
 				int sum = 0;
 				List<T>::iterator it_this(begin());
 				List<T>::iterator it_lst(lst.begin());
-				while(it_this != end()) {
+				while (it_this != end()) {
 					if ((*it_this) == (*it_lst))
 						sum++;
 					it_this++;
@@ -245,4 +245,53 @@ List<T>::List(List<T>& lst) {
 		tmp->next = nullptr;
 	}
 }
+template<typename T>
+T& middle_elem(List<T>& lst) {   //Задача найти средний элемент в списке
+	List<T>::iterator it1 = lst.begin();
+	List<T>::iterator it2 = lst.begin();
+	if (it1 != lst.end()) {
+		it1++;
+		if (it1 == lst.end())
+			return *it2;
+		else {
+			while (it1 != lst.end()) {
+				it2++;
+				it1++;
+				if (it1 == lst.end())
+					break;
+				it1++;
+			}
+			return *it2;
+		}
+	}
+	else {
+		std::exception ex("Empty list");
+		throw ex;
+	}
+}
+template<typename T>
+T& k_elem(List<T>& lst, int k){  //Задача найти k-й элемент с конца
+	List<T>::iterator it1 = lst.begin();
+	List<T>::iterator it2 = lst.begin();
+	if (it1 != lst.end()) {
+		for (int i = 0; i < k - 1; i++) {
+			it1++;
+			if (it1 == lst.end()) {
+				std::exception ex("k < size");
+				throw ex;
+			}
+		}
+		it1++;
+		while (it1 != lst.end()) {
+			it2++;
+			it1++;
+		}
+		return *it2;
 
+		
+	}
+	else {
+		std::exception ex("Empty list");
+		throw ex;
+	}
+}

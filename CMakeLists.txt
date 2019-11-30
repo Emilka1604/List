@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-set(PROJECT_NAME list)
+set(PROJECT_NAME stack)
 project(${PROJECT_NAME})
 
 # TODO(Kornyakov): not sure if these lines are needed
@@ -23,6 +23,8 @@ include_directories("${MP2_INCLUDE}" gtest)
 
 # BUILD
 add_subdirectory(include)
+#add_subdirectory(src)
+add_subdirectory(samples)
 add_subdirectory(gtest)
 add_subdirectory(test)
 

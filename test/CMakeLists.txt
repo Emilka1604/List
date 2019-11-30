@@ -2,7 +2,6 @@ set(target ${MP2_TESTS})
 
 file(GLOB hdrs "*.h*")
 file(GLOB srcs "*.cpp")
-file(GLOB srcs "*.cpp" "../include/list.cpp")
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty")
 
